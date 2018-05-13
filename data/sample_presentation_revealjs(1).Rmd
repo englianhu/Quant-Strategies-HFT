@@ -1,0 +1,145 @@
+---
+title: "Quantitative strategies on High Frequency Data"
+subtitle: "submission of research project -- SAMPLE PRESENTATION"
+author: "Team members: Author nr 1 and Author nr 2"
+output: revealjs::revealjs_presentation
+fontsize: 12pt
+---
+
+<!-- this format requires PRIOR installation
+of the revealjs package in R console
+
+install.packages("revealjs")
+
+You can find more options here:
+http://rmarkdown.rstudio.com/revealjs_presentation_format.html
+-->
+
+## Approaches undertaken
+
+This part should describe **in short** what particular methods you used, all entry/exit techniques considered, all additional assumptions.
+
+For **each group of assets separately** You should also explain **WHAT different parameters** you considered (e.g. memories of moving averages, types of moving averages, types of volatility measures, memory of volatility measures, types of additional indicators, memories of additional indicators, etc.), what (if any) additional filtering rules you applied.
+
+You should also explain with details **HOW** you searched for the best combination of parameters for a particular group of assets.
+
+
+## Finally selected strategy for **group 1**
+
+Provide a **general summary** (approach and a set of **final parameters**) for assets from **group 1**.
+(e.g. momentum strategy, cross over of two exponential moving averages EMA10 and EMA60).
+
+
+<!-- here you can include code chunk that applies the strategy for group 1 and calculates all the summary statistics
+-->
+
+```{r, echo = F, warning = F, message = F}
+# here you can refer to the R codes that apply the strategy
+# for asset group 1 to all quarters (in a loop)
+
+source("apply_my_strategy_group1.R")
+```
+
+
+
+## Summary of results for **group 1**
+
+```{r, echo = F}
+names(quarter_stats.all.group1)[5] <- "av.ntrades"
+column_spec(
+kable_styling(kable(quarter_stats.all.group1[, -2], 
+                    "html", 
+                    digits = 2,
+                    align = "r"),
+             font_size = 20),
+1:7, width = "30em")
+
+# more options here:
+# https://haozhu233.github.io/kableExtra/awesome_table_in_html.html
+```
+
+
+your comments required !!!
+
+
+
+## PnL of results for **group 1** -- quarter 2011Q1
+
+```{r, echo = F, out.width ='100%'}
+knitr::include_graphics("pnl_group1_2011Q1.png")
+
+```
+
+## PnL of results for **group 1** -- quarter 2011Q2
+
+```{r, echo = F, out.width ='100%'}
+knitr::include_graphics("pnl_group1_2011Q2.png")
+
+```
+
+## PnL of results for **group 1** -- quarter 2011Q4
+
+```{r, echo = F, out.width ='100%'}
+knitr::include_graphics("pnl_group1_2011Q4.png")
+
+```
+
+## Finally selected strategy for **group 2**
+
+Provide a **general summary** (approach and a set of **final parameters**) for assets from **group 2**.
+(e.g. momentum strategy, cross over of two exponential moving averages EMA10 and EMA60 - if DIFFERENT strategy used for each asset, you should explain EACH separately.).
+
+<!-- here you can include code chunk that applies the strategy for group 1 and calculates all the summary statistics
+-->
+
+```{r, echo = F, warning = F, message = F}
+# here you can refer to the R codes that apply the strategy
+# for asset group 2 to all quarters (in a loop)
+
+source("apply_my_strategy_group2.R")
+```
+
+## Summary of results for **group 2**
+
+```{r, echo = F}
+names(quarter_stats.all.group2)[5] <- "av.ntrades"
+column_spec(
+kable_styling(kable(quarter_stats.all.group2[, -2], 
+                    "html", 
+                    digits = 2,
+                    align = "r"),
+             font_size = 20),
+1:7, width = "30em")
+
+# more options here:
+# https://haozhu233.github.io/kableExtra/awesome_table_in_html.html
+```
+
+your comments required !!!
+
+## PnL of results for **group 2** -- quarter 2011Q1
+
+```{r, echo = F, out.width ='100%'}
+knitr::include_graphics("pnl_group2_2011Q1.png")
+
+```
+
+## PnL of results for **group 2** -- quarter 2011Q2
+
+```{r, echo = F, out.width ='100%'}
+knitr::include_graphics("pnl_group2_2011Q2.png")
+
+```
+
+
+## PnL of results for **group 2** -- quarter 2011Q4
+
+```{r, echo = F, out.width ='100%'}
+knitr::include_graphics("pnl_group2_2011Q4.png")
+
+```
+
+
+## Summary and conclusions
+
+Here you should include a summary of obtained results and some conclusions.
