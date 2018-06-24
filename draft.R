@@ -24,22 +24,25 @@ if(!dir.exists('data')){
 
 ## extract zipped dataset.
 #'@ llply(dir('data'), function(x) unzip(paste0('data/', x), exdir = 'data'))
+## 
+## password protected zipped files unable to unzip through R.
 
-# file:///C:/Users/Nijat/AppData/Local/Temp/Rar$EXb0.553/HDF_sections_assessment_201718.html
-# http://coin.wne.uw.edu.pl/pwojcik/hfd_en.html
-# password : #!hFd$Zo16%
-# 
-# This is password
-# You will see
-# 
-# Research project: rules and in-sample data
-# Research project: out-of-sample data
-# Research project: template of presentation and final report
-# 
-# Sample exam questions
-# I also sent my project that my teacher did not accept
-# We should make it again
-# I sent you all on gmail
-# 
+
+## file:///C:/Users/Nijat/AppData/Local/Temp/Rar$EXb0.553/HDF_sections_assessment_201718.html
+## http://coin.wne.uw.edu.pl/pwojcik/hfd_en.html
+## password : #!hFd$Zo16%
+## 
+## This is password
+## You will see
+## 
+## Research project: rules and in-sample data
+## Research project: out-of-sample data
+## Research project: template of presentation and final report
+## 
+## Sample exam questions
+## I also sent my project that my teacher did not accept
+## We should make it again
+## I sent you all on gmail
+## 
 
 

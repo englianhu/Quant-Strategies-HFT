@@ -20,7 +20,7 @@ setwd("...")
 Sys.setenv(TZ = 'America/New_York')
 
 
-load("data_all_2011Q1.RData")
+load("data/data_all_2011Q1.RData")
 
 # loading additional function
 
