@@ -13,3 +13,7 @@
 5. [Quantitative strategies on High Frequency Data : *submission of research project – SAMPLE PRESENTATION (RevealJS 2)*](http://rpubs.com/englianhu/402787)
 6. [Quantitative strategies on High Frequency Data : *submission of research project – SAMPLE PRESENTATION (Slidy)*](http://rpubs.com/englianhu/402789)
 
+## Speech
+
+  Meanwhile, I have another research [Real Time FXCM](https://github.com/scibrokes/real-time-fxcm) which conduct real time tick data collection and also high frequency trading.
+
