@@ -45,4 +45,28 @@ if(!dir.exists('data')){
 ## I sent you all on gmail
 ## 
 
+lnk1 <- 'https://github.com/englianhu/Quant-Strategies-HFT/blob/master/data/data_all_2011Q1.RData'
+lnk2 <- 'https://github.com/englianhu/Quant-Strategies-HFT/blob/master/data/data_all_2011Q2.RData'
+lnk3 <- 'https://github.com/englianhu/Quant-Strategies-HFT/blob/master/data/data_all_2011Q3.RData'
+lnk4 <- 'https://github.com/englianhu/Quant-Strategies-HFT/blob/master/data/data_all_2011Q4.RData'
+lnk5 <- 'https://github.com/englianhu/Quant-Strategies-HFT/blob/master/data/data_all_2012Q1.RData'
+lnk <- 'https://github.com/englianhu/Quant-Strategies-HFT/blob/master/data/data_201112.zip'
+
+download.file(lnk1, destfile = 'data/data_2011Q1.RData')
+download.file(lnk2, destfile = 'data/data_2011Q2.RData')
+download.file(lnk3, destfile = 'data/data_2011Q3.RData')
+download.file(lnk4, destfile = 'data/data_2011Q4.RData')
+download.file(lnk5, destfile = 'data/data_2012Q1.RData')
+download.file(lnk, destfile = 'data/data_201112.zip')
+
+unzip('data/data_201112.zip', exdir = 'data/data')
+
+## load tick dataset
+data.US <- llply(dir('data/', pattern = 'data'), function(x) {
+  BBmisc::load2(paste0('data/', x)) %>% xts
+  })
+data.US <- do.call(rbind, data.US)
+
+
+
 
