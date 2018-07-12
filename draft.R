@@ -75,10 +75,33 @@ con <- file('data/W25.txt', open = "rb")
 result <- readChar(con, file.info('data/W25.txt')$size, useBytes = TRUE)
 close(con)
 
+## read tick data
 W25 <- data.table::fread('data/W25.txt')
 W26 <- data.table::fread('data/W26.txt')
 W27 <- data.table::fread('data/W27.txt')
 
+## find the daily highest and lowest price.
+library('plyr')
+library('dplyr')
+library('magrittr')
+library('purrr')
+library('tidyr')
+library('xts')
+library('zoo')
+library('lubridate')
+
+W25T <- W25 %>% tbl_df %>% mutate(DateTime = mdy_hms(W25$DateTime, tz = 'GMT'), 
+                                  Date = as.Date(DateTime))
+
+#'@ ddply(W25T, .(Date), summarize, 
+#'@       DateTime.AMN = DateTime[min(Ask)], Ask.Min = min(Ask), 
+#'@       DateTime.AMX = DateTime[max(Ask)], Ask.Max = max(Ask), 
+#'@       DateTime.BMN = DateTime[min(Bid)], Bid.Min = min(Bid), 
+#'@       DateTime.BMX = DateTime[max(Bid)], Bid.Max = max(Bid), )
+
+W25T %<>% dplyr::filter(Ask == min(Ask)|Bid == min(Bid)|Ask == max(Ask)|Bid == max(Bid))
+W26T %<>% dplyr::filter(Ask == min(Ask)|Bid == min(Bid)|Ask == max(Ask)|Bid == max(Bid))
+W26T %<>% dplyr::filter(Ask == min(Ask)|Bid == min(Bid)|Ask == max(Ask)|Bid == max(Bid))
 
 
 
