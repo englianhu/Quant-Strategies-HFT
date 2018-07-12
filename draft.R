@@ -64,8 +64,20 @@ unzip('data/data_201112.zip', exdir = 'data/data')
 ## load tick dataset
 data.US <- llply(dir('data/', pattern = 'data'), function(x) {
   BBmisc::load2(paste0('data/', x)) %>% xts
-  })
+})
 data.US <- do.call(rbind, data.US)
+
+## high frequency data week 26 to week 28.
+unzip('data/W25.zip', exdir = 'data')
+
+## https://www.r-bloggers.com/faster-files-in-r/
+con <- file('data/W25.txt', open = "rb")
+result <- readChar(con, file.info('data/W25.txt')$size, useBytes = TRUE)
+close(con)
+
+W25 <- data.table::fread('data/W25.txt')
+W26 <- data.table::fread('data/W26.txt')
+W27 <- data.table::fread('data/W27.txt')
 
 
 
